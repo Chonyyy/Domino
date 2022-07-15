@@ -8,6 +8,7 @@ Console.Clear();
 Console.ForegroundColor=ConsoleColor.Black;
 
 Domino domino = new Domino();
+  
 
 Console.WriteLine("MENU");
 //-----------------------------------------------------------------
