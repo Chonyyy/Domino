@@ -35,44 +35,6 @@ namespace domino
         public static IReparticion reparticion = null!;
         public static IMirar Verjuego = null!;
 
-        public static void DefinicionJuego()
-        {
-            if (NumeroMaximoFichas == 6)
-            {
-                CantidadFichasARepartir = 7;
-            }
-            if (NumeroMaximoFichas == 9)
-            {
-                CantidadFichasARepartir = 10;
-            }
-            switch (Configuracion.Inicio)
-            {
-                case 1: inicio = new SalidaAleatoria(); break;
-                case 2: inicio = new MayorDoble(); break;
-                case 3: inicio = new FichaMasGrande(); break;
-                case 4: inicio = new ParesNones(); break;
-            }
-            switch (Configuracion.FinalPartida)
-            {
-                case 1: finalP = new JuegoTrancado(); break;
-                case 2: finalP = new FinDoblePase(); break;
-            }
-            switch (Configuracion.Puntaje)
-            {
-                case 1: pts = new PuntosDeLasFichas(); break;
-                case 2: pts = new PuntosSimples(); break;
-            }
-            switch (Configuracion.Pases)
-            {
-                case 1: pase = new PaseUsual(); break;
-                case 2: pase = new AdicionarFichaSiNoLleva(); break;
-            }
-            switch (Configuracion.FinalJuego)
-            {
-                case 1: finalJ = new PorPartidas(Configuracion.CantidadPartidas); break;
-                case 2: finalJ = new AcumulacionDePuntos(); break;
-            }
-        }
         public static void CrearFichas()
         {
             if (fichas.Count > 0)
@@ -119,6 +81,10 @@ namespace domino
         public static void Play()
         {
             Configuracion.DefinicionJuego();
+            Console.ReadKey();
+            Console.WriteLine("...presione cualquier tecla para continuar");
+
+
             int i = 0;
             do
             {
@@ -157,13 +123,7 @@ namespace domino
             Console.WriteLine("FIN DEL JUEGO...teclee cualquier tecla para salir");
             Console.ReadKey();
         }
-        /*public static void MostrarDesarrollo()
-        {
-            foreach (Partidas p in partida)
-            {
-                Console.WriteLine("Ganador:{0} del equipo {1} ", p.ganador.numeroJugador + 1, p.ganador.Equipo + 1);
-            }
-        }*/
+       
 
 
     }

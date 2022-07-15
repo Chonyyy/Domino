@@ -39,7 +39,7 @@ namespace config
                     Domino.reparticion = new Repartir99();
                     break;
 
-                default: Console.WriteLine("Seleccion incorrecta, se selecciona el 9");
+                default: Console.WriteLine("Seleccion incorrecta, se selecciona el doble 9");
                     Domino.NumeroMaximoFichas = 9;
                     Domino.CantidadFichasARepartir = 10;
                     Domino.reparticion = new Repartir99();
@@ -51,7 +51,7 @@ namespace config
                 case 2: Domino.inicio = new FichaMasGrande(); break;
                 case 3: Domino.inicio = new ParesNones(); break;
                 case 4: Domino.inicio = new MayorDoble(); break;
-                default: Console.WriteLine("Seleccion incorrecta, se selecciona el 1");
+                default: Console.WriteLine("Seleccion incorrecta, se selecciona Salida aleatoria");
                     Domino.inicio = new SalidaAleatoria();
                     break;
             }
@@ -59,7 +59,7 @@ namespace config
             {
                 case 1: Domino.finalP = new JuegoTrancado(); break;
                 case 2: Domino.finalP = new FinDoblePase(); break;
-                default: Console.WriteLine("Seleccion incorrecta, se selecciona el 1");
+                default: Console.WriteLine("Seleccion incorrecta, se selecciona Fin Usual");
                      Domino.finalP = new JuegoTrancado(); 
                     break;
             }
@@ -67,7 +67,7 @@ namespace config
             {
                 case 1: Domino.pts = new PuntosDeLasFichas(); break;
                 case 2: Domino.pts = new PuntosSimples(); break;
-                default: Console.WriteLine("Seleccion incorrecta, se selecciona el 1");
+                default: Console.WriteLine("Seleccion incorrecta, se selecciona Puntos de las fichas");
                      Domino.pts = new PuntosDeLasFichas(); 
                     break;
             }
@@ -75,7 +75,7 @@ namespace config
             {
                 case 1: Domino.pase = new PaseUsual(); break;
                 case 2: Domino.pase = new AdicionarFichaSiNoLleva(); break;
-                default: Console.WriteLine("Seleccion incorrecta, se selecciona el 1");
+                default: Console.WriteLine("Seleccion incorrecta, se selecciona el Pase Usual");
                        Domino.pase = new PaseUsual();
                     break;
             }
@@ -83,7 +83,7 @@ namespace config
             {
                 case 1: Domino.finalJ = new PorPartidas(CantidadPartidas); break;
                 case 2: Domino.finalJ = new AcumulacionDePuntos(); break;
-                default: Console.WriteLine("Seleccion incorrecta, se selecciona el 2");
+                default: Console.WriteLine("Seleccion incorrecta, se selecciona Acumulacion de Puntos");
                     Domino.finalJ = new AcumulacionDePuntos(); 
                     break;
             }
@@ -92,11 +92,22 @@ namespace config
                 case 1: Domino.Verjuego = new Pausar(); break;
                 case 2: Domino.Verjuego = new MirarSeguido(); break;
                 default:
-                    Console.WriteLine("Seleccion incorrecta, se selecciona el 2");
+                    Console.WriteLine("Seleccion incorrecta, se selecciona el Mirar Seguido");
                     Domino.Verjuego = new MirarSeguido();
                     break;
             }
         }
+        /*public static bool esValido(string s)
+        {
+            if(s==null!)
+                return false;
 
+            for (int i = 0; i < s.Length; i++)
+            {
+                if(!Char.IsDigit(s[i]))
+                    return false;
+            }
+            return true;
+        }*/
     }
 }

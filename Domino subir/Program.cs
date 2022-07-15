@@ -11,12 +11,12 @@ Domino domino = new Domino();
   
 
 Console.WriteLine("MENU");
+
 //-----------------------------------------------------------------
 Console.WriteLine("\nTipo de juego");
 Console.WriteLine("1-Doble 6\n2-Doble 9");
-int n = int.Parse(Console.ReadLine());
+var n = int.Parse(Console.ReadLine());
 Configuracion.MaxFicha = n;
-Domino.DefinicionJuego();
 
 //-------------------------------------------------------------------
 Console.WriteLine("Cantidad de jugadores");
@@ -40,7 +40,7 @@ for (int i = 0; i < Domino.CantidadJugadores; i++)
 
     switch (TiposJugadores)
     { 
-        case 1: Domino.jugadores[i] = new BotaGorda(); break;
+        case 1: Domino.jugadores[i] = new BotaGorda();break;
         case 2: Domino.jugadores[i] = new Aleatorio();break;
         case 3: Domino.jugadores[i] = new Tramposo();break;
         default:
