@@ -11,14 +11,14 @@ namespace mesa
 {
     public sealed class MESA
     {
-        public static int[] CantidadPasesSeguidosPorJugador = new int[Domino.CantidadJugadores];//Para el FinDoblePase
+        public static  int[] CantidadPasesSeguidosPorJugador = new int[Domino.CantidadJugadores];//Para el FinDoblePase
         public static List<FICHA> Mesa = new List<FICHA>();
         public static int jugadorActual = 0;
         public static int NumeroPasesSeguidos = 0;
         public static int[] puntosPorEquipos = new int[2];//Para el juego por anotacion de puntos
         public static List<int>participantes = new List<int>();
 
-        public static int JugadorSiguiente()
+        public static int ProximoJugador()
         {
             int prox = jugadorActual + 1;
             if (prox == Domino.CantidadJugadores)
@@ -26,14 +26,14 @@ namespace mesa
             return prox;
         }
         
-        static public FICHA Extremos()//Numeros de los extremos del juego
+         public static FICHA Extremos()//Numeros de los extremos del juego
         {
             if (Mesa.Count == 0)
                 return null!;
 
             return new FICHA(Mesa[0].num1, Mesa[Mesa.Count - 1].num2);
         }
-        static public void Colocar_Ficha(FICHA f)
+         public static void Colocar_Ficha(FICHA f)
         {
             if (Mesa.Count == 0)
             {

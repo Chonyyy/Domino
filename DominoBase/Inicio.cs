@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using domino;
 using ficha;
 using mesa;
@@ -11,7 +7,7 @@ namespace inicio
 {
     public interface IInicioDelJuego
     {
-        public static int jugadorInicial;
+       // public  int jugadorInicial;
         public void Inicio();
 
     }

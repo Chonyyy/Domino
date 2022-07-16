@@ -14,10 +14,7 @@ namespace interfaces
     {
         public int DevolverPuntos(int jugador);
     }
-    public interface IReparticion
-    {
-        public void RepartirFichas();
-    }
+   
     public interface IMirar
     {
         public void Mirar();

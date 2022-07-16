@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using jugador;
 using domino;
 using mesa;
@@ -25,7 +21,7 @@ namespace Desarrollo_del_Juego
         {
             MESA.Mesa.Clear();//se limpia la mesa para comenzar un juego nuevo
             Domino.CrearFichas();
-            Domino.RepartirFichas();
+            Domino.reparticion.RepartirFichas();
             Domino.MostrarFichas();
 
             Domino.inicio.Inicio();

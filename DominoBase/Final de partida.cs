@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using jugador;
 using mesa;
-using ficha;
+
 using domino;
-using Desarrollo_del_Juego;
-using partidas;
-using variantes;
-using interfaces;
+
+
+
 
 namespace fin_de_partida
 {
@@ -19,7 +14,7 @@ namespace fin_de_partida
         public abstract bool Fin();
         public JUGADOR Ganador()//que pasa si hay empate??
         {
-            ISistemaDePuntaje ContarFichasDelJugador = new PuntosSimples();
+           // ISistemaDePuntaje ContarFichasDelJugador = new PuntosSimples();
 
             int minPuntuacion = int.MaxValue;
             JUGADOR ganador = Domino.jugadores[0];
@@ -27,7 +22,7 @@ namespace fin_de_partida
 
             for (int i = 0; i < Domino.CantidadJugadores; i++)
             {
-                Puntuacion[i] = ContarFichasDelJugador.DevolverPuntos(i);
+                Puntuacion[i] = Domino.pts.DevolverPuntos(i);
 
                 if (Puntuacion[i] < minPuntuacion)
                 {

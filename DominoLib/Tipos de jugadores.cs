@@ -66,7 +66,7 @@ namespace Tipos_de_Jugadores
             bool[] mask_extremos = new bool[2];
 
             /******* evitar que se pase */
-            int Siguiente_jugador = MESA.JugadorSiguiente();
+            int Siguiente_jugador = MESA.ProximoJugador();
 
             for (int i = 0; i < Domino.jugadores[Siguiente_jugador].FichasDelJugador.Count; i++)
             {
@@ -129,6 +129,8 @@ namespace Tipos_de_Jugadores
 
         }
     }
+    
+
     public class JugadorHumano : JUGADOR
     {
         public override FICHA Escoger(List<FICHA> Fichas_posibles)

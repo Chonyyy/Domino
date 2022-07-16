@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using jugador;
 using mesa;
 using ficha;
@@ -12,21 +8,23 @@ using Final_del_juego;
 using interfaces;
 using inicio;
 using fin_de_partida;
-using config;
-using variantes;
+using repartirfichas;
+
+
 
 namespace domino
 {
-    public class Domino
+    public sealed class Domino
     {
+        
         public static int CantidadJugadores;
         public static int NumeroMaximoFichas;
         public static int CantidadFichasARepartir;
         public static List<FICHA> fichas = new List<FICHA>();
         public static JUGADOR[] jugadores = null!;
-        public static int[] equipos = equipos = new int[2];//designa los equipos a cada jugador
-        public static  List<Partidas> partida = partida = new List<Partidas>();
-        public static bool Apuntos = false;
+        public static int[] equipos =  new int[2];//designa los equipos a cada jugador
+        public static List<Partidas> partida =  new List<Partidas>();
+        public static int Apuntos = 0;
         public static IInicioDelJuego inicio =null!;
         public static FinalPartida finalP = null!; 
         public static IPases pase = null!;
@@ -35,6 +33,7 @@ namespace domino
         public static IReparticion reparticion = null!;
         public static IMirar Verjuego = null!;
 
+       
         public static void CrearFichas()
         {
             if (fichas.Count > 0)
@@ -49,10 +48,7 @@ namespace domino
                 }
             }
         }
-        public static void RepartirFichas()
-        {
-            reparticion.RepartirFichas();
-        }
+       
         public static void EliminarFichaDeLaMesa(FICHA ficha)
         {
             fichas.Remove(ficha);
@@ -78,31 +74,25 @@ namespace domino
             }
             Console.WriteLine(); Console.WriteLine();
         }
+
         public static void Play()
         {
-            Configuracion.DefinicionJuego();
-            Console.ReadKey();
-            Console.WriteLine("...presione cualquier tecla para continuar");
-
-
-            int i = 0;
+           // Configuracion.DefinicionJuego();
+            int nPartida = 0;
             do
             {
                 Console.Clear();
-                Console.WriteLine("PARTIDA {0}", i + 1);
+                Console.WriteLine("PARTIDA {0}", ++nPartida );
                 Thread.Sleep(1000);
                 Juego j = new Juego(); 
                
                 j.jugar();
 
-                if (finalJ.Tipo()=="PorPartidas")
-                { 
-                    partida.Add(new Partidas(j.ganador));
-                    equipos[j.ganador.Equipo]++;
-                }
+                finalJ.Accion(j);
+
                 if (finalJ.Tipo()=="AcumulacionDePuntos")
                 {
-                    AcumulacionDePuntos.SumaPuntos();
+                    
                     Console.WriteLine("Equipo 1: {0} pts\nEquipo 2: {1} pts",MESA.puntosPorEquipos[0],MESA.puntosPorEquipos[1]);
                 }
 
@@ -114,7 +104,7 @@ namespace domino
                 Console.ReadKey();
                 Console.WriteLine("otra vez..por último");
                 Console.ReadKey();
-
+                
             } while (true);
 
             Console.WriteLine("\nEquipo ganador: {0} \n", finalJ.EquipoGanador() + 1);
@@ -123,7 +113,13 @@ namespace domino
             Console.WriteLine("FIN DEL JUEGO...teclee cualquier tecla para salir");
             Console.ReadKey();
         }
-       
+        /*public  void MostrarDesarrollo()
+        {
+            foreach (Partidas p in partida)
+            {
+                Console.WriteLine("Ganador:{0} del equipo {1} ", p.ganador.numeroJugador + 1, p.ganador.Equipo + 1);
+            }
+        }*/
 
 
     }

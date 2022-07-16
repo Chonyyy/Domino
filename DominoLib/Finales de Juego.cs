@@ -3,22 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using partidas;
-using domino;
-using Desarrollo_del_Juego;
 using mesa;
+using domino;
+using Final_del_juego;
+using Desarrollo_del_Juego;
+using partidas;
 
-namespace Final_del_juego
-{ 
-    public interface IFinJuego
+namespace FinalesJuego
+{
+    public class PorPartidas : IFinJuego
     {
-        public bool Final();
-        public int EquipoGanador();
-        public string Tipo();
-    }
-    class PorPartidas : IFinJuego
-    {
-        int numeroPartidas;   
+        int numeroPartidas;
         public PorPartidas(int numeroPartidas)
         {
             this.numeroPartidas = numeroPartidas;
@@ -36,6 +31,11 @@ namespace Final_del_juego
 
             return false;
         }
+        public void Accion(Juego j)
+        {
+            Domino.partida.Add(new Partidas(j.ganador));
+            Domino.equipos[j.ganador.Equipo]++;
+        }
         public int EquipoGanador()
         {
             if (Domino.equipos[0] == Domino.equipos[1])
@@ -50,10 +50,10 @@ namespace Final_del_juego
     }
     public class AcumulacionDePuntos : IFinJuego
     {
-        static int equipoGanador = 0;
+        int equipoGanador = 0;
         public string Tipo()
         {
-            return  GetType().Name;
+            return GetType().Name;
         }
         public bool Final()
         {
@@ -61,14 +61,15 @@ namespace Final_del_juego
             {
                 if (MESA.puntosPorEquipos[i] >= 100)
                 {
-                    Console.WriteLine("El equipo {0} gano con {1} puntos.",i,MESA.puntosPorEquipos[i]);
+                    Console.WriteLine("El equipo {0} gano con {1} puntos.", i, MESA.puntosPorEquipos[i]);
                     equipoGanador = i;
                     return true;
                 }
             }
             return false;
         }
-        public static void SumaPuntos()
+        public void Accion(Juego j)   { SumaPuntos(); }
+        private void SumaPuntos()
         {
             for (int i = 0; i < MESA.puntosPorEquipos.Length; i++)
             {
@@ -97,3 +98,4 @@ namespace Final_del_juego
         }
     }
 }
+
