@@ -8,9 +8,6 @@ using Final_del_juego;
 using interfaces;
 using inicio;
 using fin_de_partida;
-using repartirfichas;
-
-
 
 namespace domino
 {
@@ -33,12 +30,13 @@ namespace domino
         public static IReparticion reparticion = null!;
         public static IMirar Verjuego = null!;
 
-       
         public static void CrearFichas()
-        {
+        { 
             if (fichas.Count > 0)
+     //cuando comienza una partida nueva se devuelven las fichas(fichas.Clear) para volver a repartir
                 fichas.Clear();
 
+            //Crea las fichas desde 0 hasta el numero maximo establecido
             for (int i = 0; i <= NumeroMaximoFichas; i++)
             {
                 for (int j = 0; j <= i; j++)
@@ -48,13 +46,13 @@ namespace domino
                 }
             }
         }
-       
         public static void EliminarFichaDeLaMesa(FICHA ficha)
         {
             fichas.Remove(ficha);
         }
         public static void MostrarFichas()
-        {
+        {//muestra lasa fichas de jugador una vez esten repartidas
+            
             for (int i = 0; i < jugadores.Length; i++)
             {
                 Console.Write("Jugador  {0} :", i + 1);
@@ -77,25 +75,25 @@ namespace domino
 
         public static void Play()
         {
-           // Configuracion.DefinicionJuego();
             int nPartida = 0;
             do
             {
                 Console.Clear();
                 Console.WriteLine("PARTIDA {0}", ++nPartida );
                 Thread.Sleep(1000);
+
+                //Comienza el juego
                 Juego j = new Juego(); 
                
-                j.jugar();
+                j.jugar();//Desarrollo del juego
 
-                finalJ.Accion(j);
+                finalJ.Accion(j);//Establece el fin del juego
 
-                if (finalJ.Tipo()=="AcumulacionDePuntos")
-                {
-                    
+                //Si el final es por acumulacion de puntos muetra en pantalla la actualizacion de los puntos al finalizar cada partida
+                if (finalJ.Tipo()=="AcumulacionDePuntos")    
                     Console.WriteLine("Equipo 1: {0} pts\nEquipo 2: {1} pts",MESA.puntosPorEquipos[0],MESA.puntosPorEquipos[1]);
-                }
 
+                //Cuando se cumple la condicion de final del juego se rompe el ciclo
                 if (finalJ.Final())
                     break;
 
@@ -110,16 +108,9 @@ namespace domino
             Console.WriteLine("\nEquipo ganador: {0} \n", finalJ.EquipoGanador() + 1);
 
             //MostrarDesarrollo();
-            Console.WriteLine("FIN DEL JUEGO...teclee cualquier tecla para salir");
+            Console.WriteLine("FIN DEL JUEGO !!!!!!!...teclee cualquier tecla para salir");
             Console.ReadKey();
         }
-        /*public  void MostrarDesarrollo()
-        {
-            foreach (Partidas p in partida)
-            {
-                Console.WriteLine("Ganador:{0} del equipo {1} ", p.ganador.numeroJugador + 1, p.ganador.Equipo + 1);
-            }
-        }*/
 
 
     }

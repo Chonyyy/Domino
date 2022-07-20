@@ -10,7 +10,6 @@ using inicio;
 
 namespace inicios_variantes
 {
-   
     public class SalidaAleatoria : IInicioDelJuego
     {
         public void Inicio()

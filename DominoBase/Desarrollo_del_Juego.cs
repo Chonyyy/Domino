@@ -8,9 +8,9 @@ namespace Desarrollo_del_Juego
 {
     public class Juego
     {
-        public static bool Pase = false;
+        public static bool Pase = false;//Controla el pase de un jugador en cada ronda
+        public JUGADOR ganador=null!;//Guarda el ganador por partidas
 
-        public JUGADOR ganador=null!;
         private void Siguiente()
         {
             MESA.jugadorActual++;
@@ -28,10 +28,11 @@ namespace Desarrollo_del_Juego
 
             int jugadas = 1;
 
-            /******* controlar pase para no dibujar la mesa */
             while (true)
             {   
+                //El juego se podra observar de la forma establecida en configuraciones
                 Domino.Verjuego.Mirar();
+                //Se establece el siguiente
                 Siguiente();
 
                 //Comprueba si el jugador  tiene fichas, si tiene juega
@@ -39,11 +40,13 @@ namespace Desarrollo_del_Juego
 
                 List<FICHA> Fichas_posibles = Domino.jugadores[MESA.jugadorActual].fichas_que_Lleva_Jugador(MESA.Extremos());
 
+                //Comprueba si el jugador lleva fichas
                 if (Fichas_posibles.Count != 0)
                 {
+                    //Tira una ficha entre la lista de fichas posibles
                     Domino.jugadores[MESA.jugadorActual].TirarFicha(Domino.jugadores[MESA.jugadorActual].Escoger(Fichas_posibles));
 
-                    //Comprueba si el jugador se quedo sin fichas
+                    //Comprueba si el jugador se quedo sin fichas para ver si gano
                     if ((Domino.jugadores[MESA.jugadorActual].FichasDelJugador.Count) == 0)
                     {
                         MESA.MostrarEstado(string.Format(" Ganador Dominador : {0} \nEquipo {1}", Domino.jugadores[MESA.jugadorActual].numeroJugador + 1, Domino.jugadores[MESA.jugadorActual].Equipo+1));
@@ -62,24 +65,26 @@ namespace Desarrollo_del_Juego
                     Domino.jugadores[MESA.jugadorActual].Pases.Add(MESA.Extremos().num2);
                     Pase = true;
 
+                    //si llego a la condicion de final
                     if (Domino.finalP.Fin())
                     { 
-                        ganador=Domino.finalP.Ganador();
+                        ganador=Domino.finalP.Ganador();//se establece el ganador
                         break;
                     }
                 }
 
                 if (Pase)
                 {  
-                    Domino.pase.Adicionar();
-                    Pase = false;
+                    Domino.pase.Adicionar();//Tiene la opcion de adicionar ficha o no mediante la interface IPase
+                    Pase = false;//Desmarca el pase para el proximo jugador
                 }
                 else
                 {
                     Console.Clear();
                     Domino.MostrarFichas();
-                    Console.WriteLine("Jugador: {0}", MESA.jugadorActual + 1);
-                    Console.Write("Jugadas " + (++jugadas).ToString() + " :"); MESA.Mostrar();
+                    Console.WriteLine("Jugador: {0}", MESA.jugadorActual + 1);//Muestra en pantalla el jugador actual, se le suma uno porque se inicializa en 0
+                    Console.Write("Jugadas " + (++jugadas).ToString() + " :");//Muestra el numero de jugada
+                    MESA.Mostrar();//Muestra el desarrollo de la mesa
 
                     // al haber un tiro se rompe el número de pases 
                     MESA.NumeroPasesSeguidos = 0;

@@ -7,12 +7,11 @@ namespace inicio
 {
     public interface IInicioDelJuego
     {
-       // public  int jugadorInicial;
         public void Inicio();
-
     }
     public class SalidaAleatoria : IInicioDelJuego
     {
+    //se elige un numero random entre los jugadores para comenzar y este tira una ficha
         public void Inicio()
         {
             Random r = new Random();
@@ -20,23 +19,24 @@ namespace inicio
 
             FICHA f = Domino.jugadores[salida].TirarFichaEscogida();
 
-            MESA.jugadorActual = salida;
+            MESA.jugadorActual = salida;//se actualiza el jugador actual
             Console.WriteLine("Salida : [{0},{1}]", f.num1, f.num2);
 
         }
     }
     public class MayorDoble : IInicioDelJuego
-    {
+    {//inicio solo para cuando se reparten todas las fichas 
         public void Inicio()
         {
             FICHA mayor_Doble = new FICHA(Domino.NumeroMaximoFichas, Domino.NumeroMaximoFichas);
 
             for (int i = 0; i < Domino.CantidadJugadores; i++)
             {
+                //se recorren las fichas de todos los jugadores para ver quien tiene la buscada
                 if (Domino.jugadores[i].FichasDelJugador.Exists(a => a.num1 == Domino.NumeroMaximoFichas && a.num2 == Domino.NumeroMaximoFichas))
                 {
-                    Domino.jugadores[i].TirarFicha(mayor_Doble);
-                    MESA.jugadorActual = i;
+                    Domino.jugadores[i].TirarFicha(mayor_Doble);//tira la ficha
+                    MESA.jugadorActual = i;//actualiza jugador actual( quien tiene la ficha)
                     
                     Console.WriteLine("Salida : [{0},{1}]", mayor_Doble.num1, mayor_Doble.num2); 
                     break; // ya se encontró el jugador

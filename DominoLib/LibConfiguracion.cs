@@ -4,18 +4,15 @@ using FinalesJuego;
 using inicio;
 using fin_de_partida;
 using variantes;
-using repartirfichas;
 using DominoConfiguracion;
 
 namespace config
 {
     public   class Configuracion: _Configuracion
     {
-            
-
+        //Establece la configuracion inicial del juego
         public override void DefinicionJuego()
         {
-           
                 switch (MaxFicha)
                 {
                     case 1: Domino.NumeroMaximoFichas = 6;

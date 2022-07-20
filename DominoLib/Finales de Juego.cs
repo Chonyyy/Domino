@@ -68,7 +68,10 @@ namespace FinalesJuego
             }
             return false;
         }
-        public void Accion(Juego j)   { SumaPuntos(); }
+        public void Accion(Juego j)   
+        {
+            SumaPuntos();
+        }
         private void SumaPuntos()
         {
             for (int i = 0; i < MESA.puntosPorEquipos.Length; i++)

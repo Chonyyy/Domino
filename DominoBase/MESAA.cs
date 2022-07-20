@@ -33,7 +33,7 @@ namespace mesa
 
             return new FICHA(Mesa[0].num1, Mesa[Mesa.Count - 1].num2);
         }
-         public static void Colocar_Ficha(FICHA f)
+         public static void ColocarFicha(FICHA f)
         {
             if (Mesa.Count == 0)
             {

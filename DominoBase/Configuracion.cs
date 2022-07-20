@@ -6,6 +6,8 @@ namespace DominoConfiguracion
 
     public abstract class _Configuracion
     {
+        //clase abstracta donde se establece las configuraciones necesarias para iniciar el juego
+        
         public int numjugadores;
         public int numNPartidass;
         public int numFichas;
@@ -20,7 +22,7 @@ namespace DominoConfiguracion
 
 
         public abstract void DefinicionJuego();
-     }
+    }
 
 
 }

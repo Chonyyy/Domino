@@ -3,7 +3,6 @@ using domino;
 using Desarrollo_del_Juego;
 using mesa;
 using interfaces;
-using repartirfichas;
 
 namespace variantes
 {
