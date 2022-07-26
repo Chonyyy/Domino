@@ -1,6 +1,6 @@
 ﻿using domino;
 using jugador;
-using Tipos_de_Jugadores;
+using TiposdeJugadores;
 using config;
 
 Console.BackgroundColor = ConsoleColor.Blue;
@@ -8,7 +8,7 @@ Console.Clear();
 Console.ForegroundColor = ConsoleColor.Black;
 
 
-Configuracion Cfc = new Configuracion();  
+configuracion Cfc = new configuracion();  
 
 Console.WriteLine("MENU");
 //-----------------------------------------------------------------

@@ -1,10 +1,9 @@
-﻿
-using jugador;
+﻿using jugador;
 using domino;
 using mesa;
 using ficha;
 
-namespace Desarrollo_del_Juego
+namespace DesarrolloDelJuego
 {
     public class Juego
     {
@@ -38,7 +37,7 @@ namespace Desarrollo_del_Juego
                 //Comprueba si el jugador  tiene fichas, si tiene juega
                 // primero se tienen las fichas que pudirea tirar según los extremos del domino
 
-                List<FICHA> Fichas_posibles = Domino.jugadores[MESA.jugadorActual].fichas_que_Lleva_Jugador(MESA.Extremos());
+                List<FICHA> Fichas_posibles = Domino.jugadores[MESA.jugadorActual].FichasQueLlevaElJugador(MESA.Extremos());
 
                 //Comprueba si el jugador lleva fichas
                 if (Fichas_posibles.Count != 0)

@@ -8,7 +8,7 @@ using jugador;
 using mesa;
 using domino;
 
-namespace Tipos_de_Jugadores
+namespace TiposdeJugadores
 {
     public class BotaGorda : JUGADOR
     {
@@ -44,10 +44,10 @@ namespace Tipos_de_Jugadores
             }
             else
             {
-                List<FICHA> aux = fichas_que_Lleva_Jugador(MESA.Extremos());
+                List<FICHA> aux = FichasQueLlevaElJugador(MESA.Extremos());
                 if (aux.Count == 0) { return null!; }
                 int j = r.Next(0, aux.Count);//elige entre las fichas que lleva
-                ficha = fichas_que_Lleva_Jugador(MESA.Extremos())[j];
+                ficha = FichasQueLlevaElJugador(MESA.Extremos())[j];
 
             }
             return ficha;

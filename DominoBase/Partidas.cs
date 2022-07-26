@@ -1,5 +1,4 @@
-﻿
-using jugador;
+﻿using jugador;
 
 namespace partidas
 {

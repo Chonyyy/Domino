@@ -42,7 +42,7 @@ namespace jugador
             TirarFicha(ficha);
             return ficha;
         }
-        public  List<FICHA> fichas_que_Lleva_Jugador(FICHA extremos)
+        public  List<FICHA> FichasQueLlevaElJugador(FICHA extremos)
         {
             if (extremos == null)
                 return null!;

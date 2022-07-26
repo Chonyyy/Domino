@@ -3,11 +3,11 @@ using jugador;
 using mesa;
 using ficha;
 using partidas;
-using Desarrollo_del_Juego;
-using Final_del_juego;
+using DesarrolloDelJuego;
+using FinalJuego;
 using interfaces;
 using inicio;
-using fin_de_partida;
+using finalPartida;
 
 namespace domino
 {

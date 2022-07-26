@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Finales de partida.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DominoBase\DominoBase.csproj" />
   </ItemGroup>
 

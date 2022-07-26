@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 using domino;
 using ficha;
 using mesa;
-using inicio;
 
-namespace inicios_variantes
+namespace inicio
 {
     public class SalidaAleatoria : IInicioDelJuego
     {

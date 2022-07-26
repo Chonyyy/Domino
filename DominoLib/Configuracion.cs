@@ -1,14 +1,13 @@
-﻿
-using domino;
+﻿using domino;
 using FinalesJuego;
 using inicio;
-using fin_de_partida;
+using finalPartida;
 using variantes;
 using DominoConfiguracion;
 
 namespace config
 {
-    public   class Configuracion: _Configuracion
+    public class configuracion: Configuracion
     {
         //Establece la configuracion inicial del juego
         public override void DefinicionJuego()

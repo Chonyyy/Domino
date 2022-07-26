@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Desarrollo_del_Juego;
+using DesarrolloDelJuego;
 
-namespace Final_del_juego
+namespace FinalJuego
 {
     public interface IFinJuego
     {

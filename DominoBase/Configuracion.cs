@@ -1,10 +1,8 @@
-﻿using domino;
-
-
+﻿
 namespace DominoConfiguracion
 {
 
-    public abstract class _Configuracion
+    public abstract class Configuracion
     {
         //clase abstracta donde se establece las configuraciones necesarias para iniciar el juego
         

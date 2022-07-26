@@ -1,6 +1,5 @@
-﻿
-using domino;
-using Desarrollo_del_Juego;
+﻿using domino;
+using DesarrolloDelJuego;
 using mesa;
 using interfaces;
 

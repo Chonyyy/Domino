@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using mesa;
 using domino;
-using Final_del_juego;
-using Desarrollo_del_Juego;
+using FinalJuego;
+using DesarrolloDelJuego;
 using partidas;
 
 namespace FinalesJuego
